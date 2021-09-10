@@ -4,16 +4,16 @@
           */
 
         /**FORMA 1 */
-         $nomes = ('Gildasio','Leticia','Giulenes','Neide');
+         $nomes = array('Gildasio','Leticia','Giulene','Neide');
          /***Para mostrar o conteúdo de um array basta usar o código passando a variável e o valor do índice
           * dentro do colchetes
          */
-         echo $nomes[0];
+         echo $nomes[0] . '<br/>';
 
        
          /**FORMA 2 */
-         $nome[] = 'Gildasio';
-         $nome[] = 'Giulene';
+         $nome[0] = 'Gildasio';
+         $nome[1] = 'Giulene';
          
          echo $nome[0];
          echo "ola mundo ";
@@ -29,11 +29,11 @@
         $informacoes = array('Gildasio',47, true, 10.09 );
 
         /**FORMA 5 variação da forma de declaração acima */
-        $info['nome']= Gildasio;
+        $info['nome']= 'Gildasio';
         $info['idade'] = 47;
         $info['profissao'] = 'Tecnico em Informatica';
 
-            echo $info['nome'];][
+            echo $info['nome'];
             echo '<br />';
             echo $info['idade'];
             echo '<br />';

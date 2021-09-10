@@ -11,6 +11,9 @@
     define('NOME','Gildasio');
     echo NOME; /** Observe que aqui não usamos o $ apenas o nome da varíavel como está acima */
 
-    define('NOME','Leticia');
+    echo '<br/>';
 
-<?
+    define('FILHA','Leticia');
+    echo FILHA;
+
+?>

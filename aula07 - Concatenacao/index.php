@@ -5,7 +5,7 @@
 
       $nomedaclass= 'Box';
 
-      echo 'Meu nome é ' . $nome . ' e minha idade é '$idade;
+      echo 'Meu nome é ' . $nome . ' e minha idade é '. $idade;
 
       /**Uso das aspas duplas  */
 
@@ -18,7 +18,9 @@
       /**Algumas situações que vale ressaltar sobre aspas duplas  */
       //Exemplo:
 
+      /*
       echo "<div class=""  "; // Nesse caso aqui o PHP vai entender que esta fechando 
+      */
 
       //Solução
       echo "<div class=\"$nomedaclass\">Meu conteúdo da div</div>";
