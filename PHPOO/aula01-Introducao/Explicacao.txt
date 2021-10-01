@@ -1,0 +1,17 @@
+ORIENTAÇÃO A OBJETOS NO PHP OU OOP
+
+(OBJETO - classes que são criadas e definidas a essas classes/objetos 
+            ATRIBUTOS E MÉTODOS)
+        Pessoa{ 
+
+            (Atributos)
+                    Nome
+                    idade
+                    peso
+                        (Métodos)
+                                crescer()
+                                comer()
+
+
+
+}
