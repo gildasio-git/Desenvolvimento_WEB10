@@ -1,0 +1,531 @@
+/*Resetando as bordas do navegador*/
+*{
+margin:0;
+padding:0;
+box-sizing: border-box;/*Permite usar designer responsivo*/
+font-family: "open sans";/*Linha inclui a fonte personalizada importada do GOOGLE FONTS*/
+}
+
+/*Boot CSS*/
+
+html{
+   /* overflow-x:hidden; Corrige o erro de visualização no internet explorer quando usado translate*/
+    height: 100%;
+}
+
+/*Para arrumar  scrool-x do IE e EDGE*/
+body{
+    overflow-x: hidden;
+}
+
+/*Resetando todas as bordas dos INPUTS*/
+input{
+    border: 0;
+}
+
+/*Responsividade para todas as imagens*/
+img{
+    width: 100%;
+    max-width: 400px;/*Aaplica tamanho maximo largura para todas imagens*/
+}
+
+.center{
+    max-width:1280px;
+    padding: 0 2%;
+    margin: 0 auto; 
+}
+
+.w33{
+    width: 33.3%; /*Usada na utilização de 3 boxes*/
+    padding: 0 10px;
+}
+
+.w50{
+    padding: 0 10px;
+    width: 50%; /*Class para box 50% tamanho */
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.clear{
+    clear: both;
+}
+
+/*Estilização do site */
+
+/*HEADER*/
+header{
+    padding: 20px 0px; /*primeiro valor CIMA BAIXO segundo valor DIREITA ESQUERDA */
+    background:#30437A;
+}
+
+
+/*OVERLAY-LOADING*/
+.overlay-loading{
+    display: none;/*Oculta o gif */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index:999; /*Deixa a execução acima de todos*/
+    background:rgba(0,0,0,0,4);/*último parâmetro identifica o nível de transparẽncia canal ALFA*/
+}
+
+/*OVERLAY IMAGEM */
+.overlay-loading img{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+/*MENSAGEM APÓS ENVIO DO FORMULÁRIO*/
+.sucesso{
+    display: none;
+    position: fixed;
+    right: 20px;
+    top:60px;
+    padding:15px 2%;
+    color:#008000;
+    font-weight: bold;
+    background: #DFF2BF;
+    font-size: 14px;
+    z-index: 999;/*Coloca a mensagem acima de todos os  objetos*/
+}
+
+
+/*MOBILE*/
+.mobile{
+    display: none;
+}
+
+
+/*NAVEGAÇÃO DESKTOP*/
+nav.desktop ul{
+    list-style-type: none; /*Remove marcadores da lista */
+    /*duas linhas abaixo ajuda a centração do menu UL*/
+    position: relative;
+    top:5px;
+}
+
+nav.desktop li{
+    font-weight: 300px;/*Dsensidade da fonte*/
+    font-size: 15px;/*Diminui tamanho da fonte*/
+    text-transform: uppercase;/*Itens da lista em maíusuculo*/
+    display: inline-block;/*Deixam os itens da lista um do lado do outro */
+    padding: 0 30px; /*Aplica um espaçamento entre os itens da lista direita esquerda*/
+
+}
+
+nav.desktop a{
+    color:white; /*Muda a cor do link (fonte)*/
+    text-decoration: none; /*Remove o sublinhado do link */
+}
+
+/*LOGOMARCA*/
+header .logo{
+   font-size: 23px;
+   color: white;
+   font-weight: 300px;
+   text-transform: uppercase;
+   padding-left: 10px; 
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;
+}
+
+/*BANNER CONTAINER*/
+section.banner-container{
+    width: 100%;/*Larguda do banner toda largura da página */
+    height: 600px; /*Defini altura do banner*/
+    background-size: cover;/*Faz com que a imagem de fundo cubra toda a tela - e é uma tec. designer responsivo*/
+    position: relative;
+
+}
+
+/*Banner SINGLE (SLIDERS de imagens*/
+.banner-single{
+    position: absolute;
+    left: 0;
+    top:0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: none;/*Resolve o problema das imagens abrir todas de uma vez ao carregar o site
+                  deixando por conta do Java Script o carregamento dinâmico das mesmas*/
+}
+
+.overlay{
+    position: absolute;/*com parâmetro RELATIVE no banner principal e absolute no OVERLEY manipula obj overley dentor do banner principal*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /*Parâmetro informa que esse objeto vai antes do formulário*/
+    background-color:rgba(51,51,51,0.5);/*Aplica uma opacidade preta sobre a imgem */
+
+}
+
+/*FORMULÁRIO*/
+section.banner-container form{
+    width: 93%;
+    max-width: 600px;/*Define um tamanho máximo para o formulário*/
+    z-index: 3; /*Informa que esse objeto irá depois do formulário quanto maior número , mais acima vai ficar */
+    position: absolute;/*Definie posição absoluta do objeto em relação a posição do banner principal que esta relativa*/
+    left: 50%;
+    top:50%;
+    transform:translate(-50%,-50%);/*Remove a diferença e alinha o objeto após parâmetro LEFT 50% e top 50%*/
+    -ms-transform:translate(-50%,-50%);/*Compatibiliza com navegador microsolf*/
+}
+
+section.banner-container form h2{
+    color: white;
+    font-weight: 300;/*Definie densidade da fonte H2 form */
+    font-size: 30px;/*Define tamanho da fonte H2 form*/
+    text-align: center;/*Alinha  cabeçalho H2 do form*/
+}
+
+section.banner-container form input[type=email]{/*Escpecifica apenas os inputs que deseja estilizar*/
+    width: 100%;
+    height: 66px;
+    margin-top: 10px;
+    background: white;
+    color:#333 ;
+    font-size: 22px;
+    padding-left:10px;
+    
+}
+
+/*BOTÃO FORM*/
+section.banner-container form input[type=submit]{/*especifica a estilização para o botão submit do FORM*/
+    width: 100%;
+    height: 66px;
+    margin-top: 10px;
+    background: #00C59E;
+    color:white ;
+    cursor: pointer;/*Modifica ponteiro do mouse ao mover sobre o botão SUMIT do formulário*/
+    font-size:22px;/*Altera tamanho da fonte do INPUT do campo email*/
+    border:0; /*Remove a borda do campo imput*/
+}
+
+
+/*AUTOR*/
+section.descricao-autor{
+    padding: 40px 0;
+}
+
+section.descricao-autor h2{
+    font-size: 28px;
+    font-weight: 400;
+}
+
+section.descricao-autor p{
+    font-size: 16px;
+    color: #444;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/*SEÇÃO ESPECIALIDADES*/
+section.especialidades{
+        padding: 35px 0;
+        background: #E2E2E2;
+    }
+
+section.especialidades h2.title{
+    font-size: 30px;
+    font-weight: 400;
+    color:#999;
+    text-align: center;
+
+}
+
+.box.especialidade{
+    margin:40px 0;
+    padding:0 30px;
+}
+
+.box-especialidade h3{ /*Formata icone especialidades*/
+    text-align: center;
+    color:#404580;
+    font-size:40px;
+}
+
+.box-especialidade h4{
+    color:#BABABA;
+    font-weight: 300;
+    font-size: 25px;
+    text-align: center;
+}
+
+.box-especialidade p{
+    color: #444;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/*SEÇÃO EXTRAS*/
+section.extras{
+    padding: 30px 0;
+    background:#404580;
+}
+
+.servicos-container, .depoimentos-container{
+    padding: 0 50px;
+}
+
+section.extras .title{
+    color:white;
+    font-weight: 300;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.depoimento-single{
+    padding: 15px 0;
+    border-bottom:1px solid #5056A0 ;
+}
+
+p.depoimento-descricao{
+    font-size: 15px;
+    color: white;
+    font-weight: 300;
+}
+
+p.nome-autor{
+    font-size: 15px;
+    margin-top:5px;
+    color: white;
+    font-weight: bold;
+}
+
+.servicos ul{
+    margin: 20px 0;
+    /*list-style-position: inside; /*Faz com que os marcadores fiquem para dentro da linta 
+    e não para fora da lista*/
+}
+
+.servicos li{
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: white;
+    font-weight: 300;
+}
+
+/*FOOTER*/
+footer{
+    background: #313462;
+    padding: 30px 0;
+}
+
+footer p{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+footer.fixed{ /*aplica a formatação quando verificado existência na página de erro */
+    position: fixed;
+    bottom: 0;
+    width: 1200px;
+    text-align: center;
+
+}
+
+/*PÁGINA DE ERRO 404*/
+
+section.erro-404 h2{
+    color:#444;
+    font-weight: 400;
+    text-align: center;
+    border-top: solid 2px #444;
+    font-size: 28px;
+    color:#444;
+}
+
+section.erro-404 p{
+    margin-top: 8px;
+    font-size: 16px;
+    color:#444;
+    font-weight: 300;
+    text-align: center;
+}
+
+section.erro-404 a{
+    color:#444;
+}
+
+.wraper-404{
+    transform: translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);/*compabiliza com navegadores microsoft*/
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    padding: 0 2%;
+    max-width: 1200px;
+    max-width: 1280px;  
+    position: absolute;
+    text-align: center;
+}
+
+
+/*MAPA*/
+#map{
+    width: 100%;
+    height: 400px;;
+}
+
+/*FORMULÁRIO DE CONTATO*/
+.contato-container{
+    padding: 40px 0;
+    text-align: center;
+}
+
+.contato-container textarea{
+    padding: 8px;
+    margin:8px 0;
+    width: 100%;
+    height: 120px;
+    border:1px solid #ccc;
+    padding-left: 80px;
+    font-size:16px;
+    color:#444;
+    max-width: 800px; /*Limita o tamanho dos campos INPUT*/
+    resize: vertical;/*ajusta o redimencionamento apenas na vertical en ão na horizontal*/
+}
+
+.contato-container input[type=submit]{
+    background: #00C59E;
+    width: 140px;
+    height: 40px;
+    color:white;
+    cursor: pointer;
+}
+
+
+.contato-container input[type=text]{
+    margin:8px 0;
+    width: 100%;
+    height: 40px;
+    border:1px solid #ccc;
+    padding-left: 80px;
+    font-size:16px;
+    color:#444;
+    max-width: 800px; /*Limita o tamanho dos campos INPUT*/
+}
+
+
+/*Bullets - botões navegação SLIDERS*/
+.bullets{
+    position: absolute;
+    z-index: 5;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50% 50%);
+
+}
+
+.bullets span{
+    margin: 0 10px;;
+    width: 16px;
+    height: 16px;
+    border-radius:50%;
+    cursor: pointer;
+    background-color: #444;
+    display: inline-block;
+
+}
+
+.bullets .active-slider{
+  background: white;
+
+}
+
+/*MEDIA QUERY RESPONSIVIDADE <= 768 px */
+@media screen and (max-width:768px){
+    img{
+        float: none !important;/*Forçar para reescrever a regra
+                               uma vez que seta flutuando a direita no modo normal*/
+        display: block;
+        margin: 0 auto;
+        
+    }
+    
+    /*Especifica dimenções da class W50 para resolução menores*/
+    .w50{
+        width: 100%;
+        padding: 20px;
+    }
+
+    /*Aplicando responsívo pra box 33*/
+    .w33{
+        width: 100%;
+        padding: 20px;
+    }
+
+     /*Ajustando box responsivo para especialidade*/
+     .box-especialidade{
+        margin:0;
+        padding: 40px 20px;
+    }
+
+}
+
+/*MEDIA QUERY RESPONSIVIDADE MENU <= 700 px*/
+@media screen and (max-width:700px){
+        nav.desktop{
+            display: none;
+        }
+
+        nav.mobile{
+            display: block;
+            padding-right: 25px;
+        }
+
+        .botao-menu-mobile{
+           font-size: 24px;
+           cursor: pointer;
+           color: white;
+          
+        }
+
+        nav.mobile ul{
+            top:55px;
+            z-index: 3;
+            display: block;
+            position: absolute;
+            text-align: center;
+            left: 0;
+            width: 100%;/*Defini largula das li menu em 100% da janela*/
+        }
+
+        nav.mobile li{
+            font-weight: 300;
+            font-size: 17px;
+            background:white;
+            display: block;
+            border-bottom: 1px solid #ccc;
+            padding:8px 0;
+            
+        }
+
+        nav.mobile li a{
+            color:#444;
+            text-decoration: none;
+            display: block;/*Deixa cricável em toda a linha do menu*/
+        }  
+    }
+
