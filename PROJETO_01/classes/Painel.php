@@ -2,7 +2,7 @@
 	
 	class Painel
 	{
-		
+		/**Função lista os cargos no cadastro de usuário */
 		public static $cargos = [
 		'0' => 'Normal',
 		'1' => 'Sub Administrador',
@@ -68,6 +68,7 @@
 		}
 
 		public static function uploadFile($file){
+			//Gerando um ID único para imagem , para o caso de uma mesma imagem ser cadastrada no banco
 			$formatoArquivo = explode('.',$file['name']);
 			$imagemNome = uniqid().'.'.$formatoArquivo[count($formatoArquivo) - 1];
 			if(move_uploaded_file($file['tmp_name'],BASE_DIR_PAINEL.'/uploads/'.$imagemNome))
@@ -80,6 +81,7 @@
 			@unlink('uploads/'.$file);
 		}
 
+		/*Método chamada para cadastro de depoimentos*/
 		public static function insert($arr){
 			$certo = true;
 			$nome_tabela = $arr['nome_tabela'];
@@ -102,7 +104,7 @@
 				$sql = MySql::conectar()->prepare($query);
 				$sql->execute($parametros);
 				$lastId = MySql::conectar()->lastInsertId();
-				$sql = MySql::conectar()->prepare("UPDATE `$nome_tabela` SET order_id = ? WHERE id = $lastId");
+				$sql = MySql::conectar()->prepare("UPDATE `$nome_tabela` SET id = ? WHERE id = $lastId");
 				$sql->execute(array($lastId));
 			}
 			return $certo;

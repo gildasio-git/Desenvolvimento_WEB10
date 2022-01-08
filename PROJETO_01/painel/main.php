@@ -70,7 +70,8 @@
              </div><!-- menu-btn-->
 
              <div class="loggout"><!-- Logout -->
-                    <a href="<?php echo INCLUDE_PATH_PAINEL ?>?"><i class="fa fa-home"></i><span> Página Inicial </span></a>      
+                    <!-- Altera estilo do painel quando estivers na HOME do painel -->
+                    <a <?php if(@$_GET['url']== ''){ ?> style="background:#60727a; padding:15px 15px;" <?php }  ?> href="<?php echo INCLUDE_PATH_PAINEL ?>?"><i class="fa fa-home"></i><span> Página Inicial </span></a>      
                     <a href="<?php echo INCLUDE_PATH_PAINEL ?>?loggout"><i class="fa fa-window-close"></i><span></span></a>
              </div><!-- logout -->
             <div class="clear"></div> <!-- usado logo a pós usar o float -->

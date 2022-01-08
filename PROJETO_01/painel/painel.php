@@ -10,6 +10,8 @@
 
         //Função LOGGOUT 
         public static function loggout(){
+             /*Destruindo o COOKIE*/
+             setcookie('lembrar','true',time()-1,'/');
              session_destroy();
              header('Location: '.INCLUDE_PATH_PAINEL);
         }

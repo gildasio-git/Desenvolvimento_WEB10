@@ -40,39 +40,84 @@
     </div> <!-- box-content -->
 
   <div class="box-content w100"><!--Box-content-W100 -->
-<h2><i class="fa fa-rocket"></i> Usuários Online</h2>  
-    <div class="table-responsive"><!--table responsive -->
-            <div class="row"><!-- row -->
-                <div class="col"><!-- col -->
-                   <span>
-                       IP
-                   </span>
-                </div><!-- col -->
+    <h2><i class="fa fa-rocket"></i> Usuários Online no Site</h2>  
+        <div class="table-responsive"><!--table responsive -->
+                <div class="row"><!-- row -->
+                    <div class="col"><!-- col -->
+                    <span>
+                        IP
+                    </span>
+                    </div><!-- col -->
 
-                <div class="col"><!-- col -->
-                   <span>
-                       Ultima ação
-                   </span>
-                </div><!-- col -->
-              <div class="clear"></div> <!-- limpar espaçamentos -->
-            </div><!-- row -->
+                    <div class="col"><!-- col -->
+                    <span>
+                        Ultima ação
+                    </span>
+                    </div><!-- col -->
+                <div class="clear"></div> <!-- limpar espaçamentos -->
+                </div><!-- row -->
 
-            <?php 
-                foreach ($usuariosOnline as $key => $value){
-            ?>
-            <div class="row"><!-- row -->
-                <div class="col"><!-- col -->
-                   <span>
-                      <?php echo $value['ip'];?>
-                   </span>
-                </div><!-- col -->
+                <?php 
+                    foreach ($usuariosOnline as $key => $value){
+                ?>
+                <div class="row"><!-- row -->
+                    <div class="col"><!-- col -->
+                    <span>
+                        <?php echo $value['ip'];?>
+                    </span>
+                    </div><!-- col -->
 
-                <div class="col"><!-- col -->
-                   <span>
-                   <?php echo date('d/m/Y H:i:s',strtotime($value['ultima_acao']));?>
-                   </span>
-                </div><!-- col -->
-             </div><!-- row -->
+                    <div class="col"><!-- col -->
+                    <span>
+                    <?php echo date('d/m/Y H:i:s',strtotime($value['ultima_acao']));?>
+                    </span>
+        </div><!-- col -->
+                </div><!-- row -->
+
+             <?php } ?>
+
+            <div class="clear"></div> <!-- limpar espaçamentos -->
+        </div><!--table responsive -->
+</div><!--Box-content-W100 -->
+
+<!-- Bloco abaixo conta o número de usuários cadastrados no PAINEL DE USUÁRIOS DO SITE-->
+<div class="box-content w100"><!--Box-content-W100 -->
+    <h2><i class="fa fa-rocket"></i> Usuários do Painel</h2>  
+        <div class="table-responsive"><!--table responsive -->
+                <div class="row"><!-- row -->
+                    <div class="col"><!-- col -->
+                    <span>
+                        Nome
+                    </span>
+                    </div><!-- col -->
+
+                    <div class="col"><!-- col -->
+                    <span>
+                        Cargo
+                    </span>
+                    </div><!-- col -->
+                <div class="clear"></div> <!-- limpar espaçamentos -->
+                </div><!-- row -->
+
+                <?php 
+                    $usuariosPainel = Mysql::conectar()->prepare("SELECT * FROM `tb_adm_usuarios`");   
+                    $usuariosPainel->execute();
+                    $usuariosPainel = $usuariosPainel->fetchAll();
+                    foreach ($usuariosPainel as $key => $value){
+                ?>
+                <div class="row"><!-- row -->
+                    <div class="col"><!-- col -->
+                    <span>
+                        <?php echo $value['nome'];?>
+                    </span>
+                    </div><!-- col -->
+
+                    <div class="col"><!-- col -->
+                    <span>
+                    <?php echo pegaCargo($value['cargo']);?>
+                    </span>
+        </div><!-- col -->
+                </div><!-- row -->
 
              <?php } ?>
 

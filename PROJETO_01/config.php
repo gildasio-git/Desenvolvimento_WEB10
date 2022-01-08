@@ -45,13 +45,9 @@ spl_autoload_register($autoload);
     define('NOME_EMPRESA','Mimos Stories');
 
     //Função que é chamada a partir do MAIN que defini o cargo do usuário na área de assinatura
-    function pegaCargo($cargo){
-       $arr = [
-       '0' => 'Normal',
-       '1' => 'Sub Administrador',
-       '2' => 'Administrador'];
-   
-       return $arr[$cargo];
+    function pegaCargo($indice){
+       
+       return Painel::$cargos[$indice];
       }
     
       //Pega o menu selecionado
